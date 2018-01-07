@@ -3,15 +3,18 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-    <!--配置参数未设置-->
+    <!--c3p0参数设置-->
     <bean id="s3p0dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
         <property name="driverClass" value="com.mysql.jdbc.Driver"></property>
-        <property name="jdbcUrl" value="jdbc:mysql://120.78.185.10:3306/personDb?useUnicode=true&amp;characterEncoding=utf-8"></property>
+        <property name="jdbcUrl"
+                  value="jdbc:mysql://120.78.185.10:3306/personDb?useUnicode=true&amp;characterEncoding=utf-8"></property>
         <property name="user" value="czy"></property>
         <property name="password" value="czy1234"></property>
-        <qualifier ></qualifier>
+        <qualifier></qualifier>
     </bean>
+
     <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" scope="singleton">
         <property name="dataSource" ref="s3p0dataSource"></property>
     </bean>
+
 </beans>
